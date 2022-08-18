@@ -1,0 +1,12 @@
+# Settings 
+env/
+.vim/
+.prettierignore
+
+# Build files
+node_modules/
+
+# Byte compiled
+**/__pycache__/
+
+*.txt

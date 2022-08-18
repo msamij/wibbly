@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block font %}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon" />
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+{% endblock %}
+
+{% block javascript %}
+  <script defer src="{% static 'build/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}  
+  <body>
+    <div class="overlay"></div>
+    
+    <div class="popup-menu">
+      <h2 class="heading-default popup-menu__title">Select Checkin Date</h2>
+
+      <div class="popup-menu__date-box">
+        <button class="btn-default btn-prev popup-menu__btn--prev">prev &lArr;</button>
+        <h3 class="heading-default popup-menu__date">July 2022</h3>
+        <button class="btn-default btn-next popup-menu__btn--next">next &rArr;</button>
+      </div>
+
+      <div class="popup-menu__date-selection">
+        <button class="btn-default btn-date">July 10</button>
+        <button class="btn-default btn-date">July 20</button>
+        <button class="btn-default btn-date">July 22</button>
+      </div>
+      <button class="btn-default btn-save">Save</button>
+    </div>
+
+    <header class="header">
+      <div class="header__title-box">
+        <h2 class="heading-default header__title">Hotel Transalvania</h2>
+        <h3 class="heading-default header__location">
+          <span class="heading-default header__street-name">153B, Street Boulvard Near Central Park, </span>
+          <span class="heading-default header__city">New York</span>
+        </h3>
+        <h3 class="heading-default header__price">400$ per night</h3>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="gallery-box">
+        <div class="gallery-box__gallery">
+          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+        </div>
+
+        <div class="gallery-box__gallery">
+          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+        </div>
+      </div>
+
+      <div class="instructor">
+        <h3 class="heading-default instructor__heading">Your Guide</h3>
+        <div class="instructor__details">
+          <img
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Instructor"
+            class="instructor__image"
+          />
+          <h3 class="heading-default instructor__name">Lara Croft</h3>
+        </div>
+      </div>
+
+      <div class="review">
+        <h3 class="heading-default review__heading"><span class="review__count">12 </span>reviews</h3>
+        <div class="review__details">
+          <button class="btn-default btn-prev review__btn--prev">prev &lArr;</button>
+
+          <h3 class="heading-default review__text">
+            &ldquo; This was the best experience of my life &rdquo;
+            <span class="review__stars">&star; &star; &star; &star; &star;</span>
+            <p class="review__author">&mdash; James <span class="review__year">2020</span></p>
+          </h3>
+
+          <button class="btn-default btn-next review__btn--next">next &rArr;</button>
+        </div>
+      </div>
+    </main>
+
+    <div class="description">
+      <h3 class="heading-default description__heading">About this Hotel</h3>
+      <h3 class="heading-default description__text">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur ea dolorem quas, vitae ex commodi mollitia
+        sit alias ut veniam sequi assumenda eius voluptatibus vel nihil facere saepe possimus est!
+      </h3>
+      <button class="btn-default btn-booking">Reserve Booking</button>
+    </div>
+  </body>
+{% endblock %}

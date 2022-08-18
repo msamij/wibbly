@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block font %}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon" />
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+{% block javascript %}
+  <script defer src="{% static 'build/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}  
+  <body class="container">
+    <div class="overlay"></div>
+
+    <div class="popup-signup-menu">
+      <input type="text" placeholder="username" class="input" />
+      <input type="text" placeholder="password" class="input" />
+      <button class="btn btn-secondary">Signup</button>
+    </div>
+
+    <div class="popup-list-menu booking-list">
+      <!-- <h2 class="heading-default booking-list__message">You currently have no bookings ☹️</h2> -->
+
+      <a href="#" class="booking">
+        <img
+          class="booking__image"
+          src=""
+          alt="booking image"
+        />
+        <div class="booking__title-box">
+          <p class="heading-default booking__title">Hotel transalvania</p>
+          <p class="heading-default booking__date">20, Jan 2021</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="popup-list-menu notification-list">
+      <!-- <h2 class="heading-default booking-list__message">✨ No notifications at this moment ✨</h2> -->
+
+      <p class="notification-list__notification">
+        🌟 Your booking for hotel transalvania for 20, dec 2022 is now finished.
+        <a href="#" class="btn-rating">Rate Now</a>
+      </p>
+    </div>
+
+    <div class="popup-list-menu review-list">
+      <div class="select-menu-box">
+        <select class="select-menu-box__menu">
+          <option value="0">Select rating</option>
+          <option value="1">Excellent</option>
+          <option value="2">Very Good</option>
+          <option value="3">Good</option>
+          <option value="4">Bad</option>
+          <option value="5">Poor</option>
+        </select>
+      </div>
+      <textarea class="review-list__description" cols="35" rows="3" placeholder="Description (Optional)"></textarea>
+      <button class="btn btn-secondary">Save</button>
+    </div>
+
+    <header class="header">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="header__logo" />
+
+      <div class="header__menu">
+        <button class="btn btn-primary btn__bookings">
+          My Bookings
+          <svg class="btn__icon">
+              <use xlink:href="{% static 'img/symbol-defs.svg' %}#icon-credit-card"></use>
+          </svg>
+        </button>
+
+        <button class="btn btn-primary btn__notifications">
+          Notifications
+          <svg class="btn__icon">
+            <use xlink:href="{% static 'img/symbol-defs.svg' %}#icon-notifications-outline"></use>
+          </svg>
+        </button>
+
+        <button class="btn btn-primary btn__profile">
+          Profile
+          <svg class="btn__icon">
+            <use xlink:href="{% static 'img/symbol-defs.svg' %}#icon-user"></use>
+          </svg>
+        </button>
+
+        <div class="header__profile-menu">
+          <button class="btn btn-secondary btn-signup">Signup</button>
+          <button class="btn btn-secondary btn-login">Login</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <h2 class="heading-default heading-primary">Hotels 🏨</h2>
+
+      <div class="figure-box">
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Hotel Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Hotel Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Hotel Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+      </div>
+
+      <h2 class="heading-default heading-primary">Tours ⛰️</h2>
+      <div class="figure-box">
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Tour Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Tour Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Tour Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Tour Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+      </div>
+
+      <h2 class="heading-default heading-primary">Activities 🏊🏻‍♂️</h2>
+      <div class="figure-box">
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Activity Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Activity Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Activity Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+
+        <figure class="figure">
+          <a href="#" class="figure__link">
+            <img
+              src=""
+              alt="Activity Image"
+              class="figure__image"
+            />
+            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
+            <h3 class="heading-default figure__price">200$ night</h3>
+          </a>
+        </figure>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p class="heading-default copyright">&copy; Muhammad Sami</p>
+    </footer>
+  </body>
+{% endblock %}
