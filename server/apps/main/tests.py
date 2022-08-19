@@ -1,17 +1,17 @@
-from django.test import Client, TestCase
-from django.urls import resolve
-
+from urllib import response
+from django.test import Client, TransactionTestCase
 from server.apps.hotels.models import Hotel
-from .views import index, get_hotel_data
 
 
-class HomePageTest(TestCase):
+class HomePageTest(TransactionTestCase):
     def setUp(self):
         self.client = Client()
+        self.response = self.client.get('/')
 
     def test_home_page_returns_correct_template(self):
-        response = self.client.get('/')
-        self.assertTemplateUsed(response, 'index.html')
+        self.assertEqual(self.response.status_code, 200)
+        self.assertTemplateUsed(self.response, 'index.html')
 
-    def test_function_returns_hotel_objects(self):
-        self.client.get('/')
+    def test_template_contains_correct_context(self):
+        self.assertCountEqual(
+            self.response.context['hotels'], Hotel.objects.all()[:4])
