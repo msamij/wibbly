@@ -1,10 +1,9 @@
-from django.test import Client, TestCase
+from test_setup import HomePageTestSetup
 
 
-class HomePageTest(TestCase):
+class HomePageTest(HomePageTestSetup):
     def setUp(self):
-        self.client = Client()
-        self.response = self.client.get('/')
+        super().setUp()
 
     def test_home_page_returns_correct_template(self):
         self.assertEqual(self.response.status_code, 200)
