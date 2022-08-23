@@ -98,157 +98,54 @@
 
     <main class="main">
       <h2 class="heading-default heading-primary">Hotels 🏨</h2>
-
       <div class="figure-box">
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Hotel Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Hotel Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Hotel Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__location">NY</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
+        {% for hotel in hotels %}
+          <figure class="figure">
+            <a href="#" class="figure__link">
+              <img
+                src=""
+                alt="Hotel Image"
+                class="figure__image"
+              />
+              <h2 class="heading-default figure__title">{{ hotel.hotel_name }}, <span class="figure__rooms">{{ hotel.no_of_rooms }} rooms</span></h2>
+              <h3 class="heading-default figure__price">{{ hotel.price_per_night }}$ night</h3>
+            </a>
+          </figure>
+        {% endfor %}
       </div>
 
       <h2 class="heading-default heading-primary">Tours ⛰️</h2>
       <div class="figure-box">
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Tour Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Tour Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Tour Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Tour Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
+        {% for tour in tours %}
+          <figure class="figure">
+            <a href="#" class="figure__link">
+              <img
+                src=""
+                alt="Tour Image"
+                class="figure__image"
+              />
+              <h2 class="heading-default figure__title">{{ tour.tour_name }}, <span class="figure__duration">{{ tour.tour_duration }} days</span></h2>
+              <h3 class="heading-default figure__price">{{ tour.tour_price }}$</h3>
+            </a>
+          </figure>
+        {% endfor %}
       </div>
 
       <h2 class="heading-default heading-primary">Activities 🏊🏻‍♂️</h2>
       <div class="figure-box">
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Activity Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Activity Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Activity Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
-
-        <figure class="figure">
-          <a href="#" class="figure__link">
-            <img
-              src=""
-              alt="Activity Image"
-              class="figure__image"
-            />
-            <h2 class="heading-default figure__title">Hotel Transalvania, <span class="figure__duration">20</span></h2>
-            <h3 class="heading-default figure__price">200$ night</h3>
-          </a>
-        </figure>
+        {% for activity in activities %}
+          <figure class="figure">
+            <a href="#" class="figure__link">
+              <img
+                src=""
+                alt="Activity Image"
+                class="figure__image"
+              />
+              <h2 class="heading-default figure__title">{{ activity.activity_name }}</h2>
+              <h3 class="heading-default figure__price">{{ activity.activity_price }}$</h3>
+            </a>
+          </figure>
+        {% endfor %}
       </div>
     </main>
 

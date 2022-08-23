@@ -1,4 +1,4 @@
-from server.apps.main.utils import *
+from server.apps.main.utils.test_objects import *
 
 from test_setup import HomePageTestSetup
 
