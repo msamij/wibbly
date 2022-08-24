@@ -1,9 +1,18 @@
+from server.apps.activities.models import Activity
+from server.apps.activityimages.models import ActivityImage
 from server.apps.hotelimages.models import HotelImage
 from server.apps.hotels.models import Hotel
+from server.apps.tourimages.models import TourImage
+from server.apps.tours.models import Tour
 
 
-def get_hotel_images(hotel: Hotel) -> list:
-    hotel_images = []
-    for h in hotel.objects.all():
-        hotel_images.append(HotelImage.objects.get(hotel=h.pk)[0])
-    return hotel_images
+def get_hotel_with_images() -> list:
+    return [HotelImage.objects.filter(hotel=hotel.pk)[0] for hotel in Hotel.objects.all()[:4]]
+
+
+def get_tour_with_images() -> list:
+    return [TourImage.objects.filter(tour=tour.pk)[0] for tour in Tour.objects.all()[:4]]
+
+
+def get_activity_with_images() -> list:
+    return [ActivityImage.objects.filter(activity=activity.pk)[0] for activity in Activity.objects.all()[:4]]

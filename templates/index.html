@@ -103,12 +103,12 @@
           <figure class="figure">
             <a href="#" class="figure__link">
               <img
-                src=""
+                src="{{ hotel.hotel_image_url }}"
                 alt="Hotel Image"
                 class="figure__image"
               />
-              <h2 class="heading-default figure__title">{{ hotel.hotel_name }}, <span class="figure__rooms">{{ hotel.no_of_rooms }} rooms</span></h2>
-              <h3 class="heading-default figure__price">{{ hotel.price_per_night }}$ night</h3>
+              <h2 class="heading-default figure__title">{{ hotel.hotel.hotel_name }}, <span class="figure__rooms">{{ hotel.hotel.no_of_rooms }} rooms</span></h2>
+              <h3 class="heading-default figure__price">{{ hotel.hotel.price_per_night }}$ night</h3>
             </a>
           </figure>
         {% endfor %}
@@ -120,12 +120,12 @@
           <figure class="figure">
             <a href="#" class="figure__link">
               <img
-                src=""
+                src="{{ tour.tour_image_url }}"
                 alt="Tour Image"
                 class="figure__image"
               />
-              <h2 class="heading-default figure__title">{{ tour.tour_name }}, <span class="figure__duration">{{ tour.tour_duration }} days</span></h2>
-              <h3 class="heading-default figure__price">{{ tour.tour_price }}$</h3>
+              <h2 class="heading-default figure__title">{{ tour.tour.tour_name }}, <span class="figure__duration">{{ tour.tour.tour_duration }} day tour</span></h2>
+              <h3 class="heading-default figure__price">{{ tour.tour.tour_price }}$</h3>
             </a>
           </figure>
         {% endfor %}
@@ -137,12 +137,12 @@
           <figure class="figure">
             <a href="#" class="figure__link">
               <img
-                src=""
+                src="{{ activity.activity_image_url }}"
                 alt="Activity Image"
                 class="figure__image"
               />
-              <h2 class="heading-default figure__title">{{ activity.activity_name }}</h2>
-              <h3 class="heading-default figure__price">{{ activity.activity_price }}$</h3>
+              <h2 class="heading-default figure__title">{{ activity.activity.activity_name }}</h2>
+              <h3 class="heading-default figure__price">{{ activity.activity.activity_price }}$</h3>
             </a>
           </figure>
         {% endfor %}
