@@ -118,7 +118,7 @@
       <div class="figure-box">
         {% for tour in tours %}
           <figure class="figure">
-            <a href="#" class="figure__link">
+            <a href="/tours/{{ tour.tour.tour_name }}" class="figure__link">
               <img
                 src="{{ tour.tour_image_url }}"
                 alt="Tour Image"

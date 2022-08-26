@@ -6,6 +6,14 @@ from server.apps.tourimages.models import TourImage
 from server.apps.tours.models import Tour
 
 
+def get_context() -> dict:
+    return {
+        'activities': get_activity_with_images(),
+        'hotels': get_hotel_with_images(),
+        'tours': get_tour_with_images(),
+    }
+
+
 def get_hotel_with_images() -> list:
     return [HotelImage.objects.filter(hotel=hotel.pk)[0] for hotel in Hotel.objects.all()[:4]]
 

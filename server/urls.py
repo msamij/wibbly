@@ -21,4 +21,5 @@ urlpatterns = [
 
     # root url.
     path('', include('server.apps.main.urls')),
+    path('tours/', include('server.apps.tours.urls')),
 ]
