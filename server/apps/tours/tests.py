@@ -13,7 +13,11 @@ class TourPageTest(TestCase):
         self.assertTemplateUsed(self.response, 'main.html')
 
     def test_tour_page_contains_correct_context(self):
-        self.assertQuerysetEqual(
-            self.response.context['tour'], get_tour('tour_name'))
         self.assertEqual(
-            self.response.context['tour_rating'], get_tour_rating('tour_name'))
+            self.response.context['tour'], get_tour('test_tour'))
+        self.assertEqual(
+            self.response.context['tour_rating'], get_tour_rating(self.response.context['tour']))
+        self.assertEqual(self.response.context['tour_images'], get_tour_images(
+            self.response.context['tour']))
+        self.assertEqual(self.response.context['tour_instructor'], get_tour_instructor(
+            self.response.context['tour']))
