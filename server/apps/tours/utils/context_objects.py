@@ -25,7 +25,7 @@ def get_tour(tour_name: str) -> list:
 
 
 def get_tour_rating(tour: Tour) -> list:
-    return [Rating.objects.filter(rating=tour.rating)[0] for tour in TourRating.objects.filter(tour__in=tour)[:1]]
+    return [Rating.objects.filter(pk=tour.rating.pk)[0] for tour in TourRating.objects.filter(tour__in=tour)[:1]]
 
 
 def get_tour_images(tour: Tour) -> list:
@@ -33,4 +33,4 @@ def get_tour_images(tour: Tour) -> list:
 
 
 def get_tour_instructor(tour: Tour) -> list:
-    return [Instructor.objects.filter(pk=tour_instructor.instructor.pk) for tour_instructor in TourInstructor.objects.filter(tour__in=tour)]
+    return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=tour)]

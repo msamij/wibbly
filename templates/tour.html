@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block header-title %}
+   {% for t in tour %}
+	{{ t.tour_name }}
+   {% endfor %}
+{% endblock %}
+
+{% block header-title-1 %}
+   {% for t in tour %}
+	{{ t.tour_duration }} days tour
+   {% endfor %}
+{% endblock %}
+
+{% block header-title-2 %}
+   {% for t in tour %}
+	{{ t.max_participants }} participants
+   {% endfor %}
+{% endblock %}
+
+{% block price %}
+   {% for t in tour %}
+	{{ t.tour_price }} $ person
+   {% endfor %}
+{% endblock %}
+
+{% block gallery-1 %}
+   {% for image in tour_images %}
+      <img src="{{ image.tour_image_url }}" alt="Tour Image" class="gallery-box__image"/>
+   {% endfor %}
+{% endblock %}
+
+
+{% block instructor_image %}
+   {% for instructor in tour_instructor %}
+      {{ instructor.instructor_image }}
+   {% endfor %}
+{% endblock %}
+
+{% block instructor_name %}
+   {% for instructor in tour_instructor %}
+      {{ instructor.first_name }} {{ instructor.last_name }}
+   {% endfor %}
+{% endblock %}
+
+{{ instructor.first_name }} {{ instructor.last_name }}
+
+{% block description_heading %}About this tour{% endblock %}
+
+{% block description %}
+      {% for t in tour %}
+         {{ t.tour_description }}
+      {% endfor %}
+{% endblock %}

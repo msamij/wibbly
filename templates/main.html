@@ -14,7 +14,7 @@
   <script defer src="{% static 'build/index.js' %}"></script>
 {% endblock %}
 
-{% block body %}  
+{% block body %}
   <body>
     <div class="overlay"></div>
     
@@ -36,42 +36,44 @@
     </div>
 
     <header class="header">
-      <div class="header__title-box">
-        <h2 class="heading-default header__title">Hotel Transalvania</h2>
-        <h3 class="heading-default header__location">
-          <span class="heading-default header__street-name">153B, Street Boulvard Near Central Park, </span>
-          <span class="heading-default header__city">New York</span>
+      <div class="header__title-box"> 
+        <h2 class="heading-default header__title-primary">{% block header-title %}{% endblock %}</h2>
+        {% block location %}{% endblock %}
+        <h3 class="heading-default header__title-secondary">
+          <span class="heading-default header__title-1">{% block header-title-1 %}{% endblock %}</span>
+          <span class="heading-default header__title-2">{% block header-title-2 %}{% endblock %}</span>
         </h3>
-        <h3 class="heading-default header__price">400$ per night</h3>
+        <h3 class="heading-default header__price">{% block price %}{% endblock %}</h3>
       </div>
     </header>
 
     <main class="main">
       <div class="gallery-box">
         <div class="gallery-box__gallery">
-          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
-          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+          {% block gallery-1 %}{% endblock %}
         </div>
 
         <div class="gallery-box__gallery">
-          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
-          <img src="./img/batman.jpg" alt="image" class="gallery-box__image" />
+          {% block gallery-2 %}{% endblock %}
         </div>
       </div>
-
-      <div class="instructor">
-        <h3 class="heading-default instructor__heading">Your Guide</h3>
-        <div class="instructor__details">
-          <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29uJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            alt="Instructor"
-            class="instructor__image"
-          />
-          <h3 class="heading-default instructor__name">Lara Croft</h3>
+      
+      {% if tour or activity %}
+        <div class="instructor">
+          <h3 class="heading-default instructor__heading">Your Guide</h3>
+          <div class="instructor__details">
+            <img
+              src="{% block instructor_image %}{% endblock %}"
+              alt="Instructor"
+              class="instructor__image"
+            />
+            <h3 class="heading-default instructor__name">{% block instructor_name %}{% endblock %}</h3>
+          </div>
         </div>
-      </div>
+      {% endif %}
 
-      <div class="review">
+      {%block review %}{% endblock %}
+      <!-- <div class="review">
         <h3 class="heading-default review__heading"><span class="review__count">12 </span>reviews</h3>
         <div class="review__details">
           <button class="btn-default btn-prev review__btn--prev">prev &lArr;</button>
@@ -84,15 +86,12 @@
 
           <button class="btn-default btn-next review__btn--next">next &rArr;</button>
         </div>
-      </div>
+      </div> -->
     </main>
 
     <div class="description">
-      <h3 class="heading-default description__heading">About this Hotel</h3>
-      <h3 class="heading-default description__text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur ea dolorem quas, vitae ex commodi mollitia
-        sit alias ut veniam sequi assumenda eius voluptatibus vel nihil facere saepe possimus est!
-      </h3>
+      <h3 class="heading-default description__heading">{% block description_heading %}{% endblock %}</h3>
+      <h3 class="heading-default description__text">{% block description %}{% endblock %}</h3>
       <button class="btn-default btn-booking">Reserve Booking</button>
     </div>
   </body>

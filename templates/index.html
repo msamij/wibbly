@@ -119,11 +119,11 @@
         {% for tour in tours %}
           <figure class="figure">
             <a href="/tours/{{ tour.tour.tour_name }}" class="figure__link">
-              <img
-                src="{{ tour.tour_image_url }}"
-                alt="Tour Image"
-                class="figure__image"
-              />
+                <img
+                  src="{{ tour.tour_image_url }}"
+                  alt="Tour Image"
+                  class="figure__image"
+                />
               <h2 class="heading-default figure__title">{{ tour.tour.tour_name }}, <span class="figure__duration">{{ tour.tour.tour_duration }} day tour</span></h2>
               <h3 class="heading-default figure__price">{{ tour.tour.tour_price }}$</h3>
             </a>

@@ -4,4 +4,4 @@ from .utils.context_objects import get_context
 
 
 def tour(request, tour: str):
-    return render(request, 'main.html', status=200, context=get_context(tour))
+    return render(request, 'tour.html', status=200, context=get_context(tour))

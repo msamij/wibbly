@@ -13,6 +13,6 @@ class Tour(models.Model):
         validators=[MinValueValidator(10), MaxValueValidator(20)])
 
     def __str__(self) -> str:
-        return f"""Pk: {self.pk}, Tour Name{self.tour_name}, 
+        return f"""Pk: {self.pk}, Tour Name: {self.tour_name}, 
         Tour Price: {self.tour_price}, Tour Description: {self.tour_description}, 
-       Tour Duration: {self.tour_duration}, Max Participants{self.max_participants}"""
+       Tour Duration: {self.tour_duration}, Max Participants: {self.max_participants}"""

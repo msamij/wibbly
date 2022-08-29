@@ -129,14 +129,14 @@ body {
   padding: 6rem 0 5rem 15rem;
   background-color: var(--color-primary);
 }
-.header__title {
+.header__title-primary {
   font-size: 3.5rem;
   font-weight: 500;
 }
-.header__location {
+.header__title-secondary {
   font-size: 1.6rem;
 }
-.header__city {
+.header__title-2 {
   display: block;
 }
 .header__price {
@@ -166,7 +166,6 @@ body {
 
 .instructor {
   padding: 2rem 0;
-  display: none;
 }
 .instructor__heading {
   font-size: 2.5rem;

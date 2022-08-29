@@ -10,7 +10,7 @@ class TourPageTest(TestCase):
 
     def test_tour_page_returns_correct_template(self):
         self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'main.html')
+        self.assertTemplateUsed(self.response, 'tour.html')
 
     def test_tour_page_contains_correct_context(self):
         self.assertEqual(
