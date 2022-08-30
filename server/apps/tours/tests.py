@@ -1,9 +1,6 @@
 from django.test import TestCase, Client
-from .utils.context_objects import *
-
-
-def create_test_tour_object():
-    return Tour.objects.create(tour_name='test_tour', tour_price=0, tour_description='', max_participants=0, tour_duration=0)
+from .utils.context_objects import TourContext
+from .utils.test_objects import create_test_tour_object
 
 
 class TourPageTest(TestCase):
@@ -18,21 +15,21 @@ class TourPageTest(TestCase):
         self.assertTemplateUsed(self.response, 'tour.html')
 
     def test_tour_page_contains_correct_context(self):
-        self.tour_name = 'test_tour'
+        self.tour_context_obj = TourContext('test_tour')
 
         self.assertEqual(
-            self.response.context['tour_name'], get_tour_name(self.tour_name))
+            self.response.context['tour_name'], self.tour_context_obj.get_tour_name())
         self.assertEqual(
-            self.response.context['tour_price'], get_tour_price(self.tour_name))
+            self.response.context['tour_price'], self.tour_context_obj.get_tour_price())
         self.assertEqual(
-            self.response.context['tour_description'], get_tour_description(self.tour_name))
+            self.response.context['tour_description'], self.tour_context_obj.get_tour_description())
         self.assertEqual(
-            self.response.context['max_participants'], get_tour_max_participants(self.tour_name))
+            self.response.context['max_participants'], self.tour_context_obj.get_tour_max_participants())
         self.assertEqual(
-            self.response.context['tour_duration'], get_tour_duration(self.tour_name))
-        # self.assertEqual(
-        #     self.response.context['tour_rating'], get_tour_rating(self.response.context['tour']))
-        # self.assertEqual(self.response.context['tour_images'], get_tour_images(
-        #     self.response.context['tour']))
-        # self.assertEqual(self.response.context['tour_instructor'], get_tour_instructor(
-        #     self.response.context['tour']))
+            self.response.context['tour_duration'], self.tour_context_obj.get_tour_duration())
+        self.assertEqual(
+            self.response.context['tour_rating'], self.tour_context_obj.get_tour_rating())
+        self.assertEqual(
+            self.response.context['tour_images'], self.tour_context_obj.get_tour_images())
+        self.assertEqual(
+            self.response.context['tour_instructor'], self.tour_context_obj.get_tour_instructor())
