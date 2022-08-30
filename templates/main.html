@@ -50,15 +50,11 @@
     <main class="main">
       <div class="gallery-box">
         <div class="gallery-box__gallery">
-          {% block gallery-1 %}{% endblock %}
-        </div>
-
-        <div class="gallery-box__gallery">
-          {% block gallery-2 %}{% endblock %}
+          {% block gallery %}{% endblock %}
         </div>
       </div>
       
-      {% if tour or activity %}
+      {% if tour_name or activity_name %}
         <div class="instructor">
           <h3 class="heading-default instructor__heading">Your Guide</h3>
           <div class="instructor__details">
@@ -71,26 +67,27 @@
           </div>
         </div>
       {% endif %}
+        
+      {% if tour_rating or hotel_rating or activity_rating %}
+        <div class="review">
+          <h3 class="heading-default review__heading"><span class="review__count">12 </span>reviews</h3>
+          <div class="review__details">
+            <button class="btn-default btn-prev review__btn--prev">prev &lArr;</button>
 
-      {%block review %}{% endblock %}
-      <!-- <div class="review">
-        <h3 class="heading-default review__heading"><span class="review__count">12 </span>reviews</h3>
-        <div class="review__details">
-          <button class="btn-default btn-prev review__btn--prev">prev &lArr;</button>
+            <h3 class="heading-default review__text">
+              &ldquo; This was the best experience of my life &rdquo;
+              <span class="review__stars">&star; &star; &star; &star; &star;</span>
+              <p class="review__author">&mdash; James <span class="review__year">2020</span></p>
+            </h3>
 
-          <h3 class="heading-default review__text">
-            &ldquo; This was the best experience of my life &rdquo;
-            <span class="review__stars">&star; &star; &star; &star; &star;</span>
-            <p class="review__author">&mdash; James <span class="review__year">2020</span></p>
-          </h3>
-
-          <button class="btn-default btn-next review__btn--next">next &rArr;</button>
+            <button class="btn-default btn-next review__btn--next">next &rArr;</button>
+          </div>
         </div>
-      </div> -->
+      {% endif %}
     </main>
 
     <div class="description">
-      <h3 class="heading-default description__heading">{% block description_heading %}{% endblock %}</h3>
+      <h3 class="heading-default description__heading">About this {% block description_title %}{% endblock %}</h3>
       <h3 class="heading-default description__text">{% block description %}{% endblock %}</h3>
       <button class="btn-default btn-booking">Reserve Booking</button>
     </div>
