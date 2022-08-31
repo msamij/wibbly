@@ -1,6 +1,7 @@
-from webbrowser import get
 from django.shortcuts import render
 
+from .utils.context_objects import get_context
 
-def hotels(request, hotel_name):
-    return render(request, 'main.html')
+
+def hotels(request, hotel):
+    return render(request, 'hotel.html', status=200, context=get_context(hotel))

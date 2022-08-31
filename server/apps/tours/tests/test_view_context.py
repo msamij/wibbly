@@ -1,18 +1,10 @@
-from django.test import TestCase, Client
-from .utils.context_objects import TourContext
-from .utils.test_objects import create_test_tour_object
+from server.apps.tours.utils.context_objects import TourContext
+from test_setup import TourPageTestSetup
 
 
-class TourPageTest(TestCase):
+class TourPageTest(TourPageTestSetup):
     def setUp(self):
         super().setUp()
-        self.client = Client()
-        self.tour = create_test_tour_object()
-        self.response = self.client.get('/tours/test_tour')
-
-    def test_tour_page_returns_correct_template(self):
-        self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'tour.html')
 
     def test_tour_page_contains_correct_context(self):
         self.tour_context_obj = TourContext('test_tour')

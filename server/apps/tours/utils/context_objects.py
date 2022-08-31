@@ -34,7 +34,7 @@ class TourContext():
         return [Rating.objects.filter(pk=tour.rating.pk)[0] for tour in TourRating.objects.filter(tour__in=self.__tour)[:1]]
 
     def get_tour_images(self) -> list:
-        return [tour_image for tour_image in TourImage.objects.filter(tour__in=self.__tour)[:4]]
+        return [tour_images for tour_images in TourImage.objects.filter(tour__in=self.__tour)[:4]]
 
     def get_tour_instructor(self) -> list:
         return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=self.__tour)]
@@ -42,6 +42,7 @@ class TourContext():
 
 def get_context(tour_name: str) -> dict:
     tour_context_obj = TourContext(tour_name)
+
     return {
         'tour_name': tour_context_obj.get_tour_name(),
         'tour_price': tour_context_obj.get_tour_price(),
