@@ -1,30 +1,30 @@
 from server.apps.hotelimages.models import HotelImage
 from server.apps.hotels.models import Hotel, HotelAddress
+from server.utils.context_objects import Context
 
 
-class HotelContext():
-    __hotel: Hotel
+class HotelContext(Context[Hotel]):
 
     def __init__(self, hotel_name: str) -> None:
-        self.__hotel = Hotel.objects.filter(hotel_name=hotel_name)
+        self._context_obj = Hotel.objects.filter(hotel_name=hotel_name)
 
     def get_hotel_name(self) -> list:
-        return self.__hotel[0].hotel_name
+        return self.get_context_obj().hotel_name
 
     def get_total_hotel_rooms(self) -> list:
-        return self.__hotel[0].no_of_rooms
+        return self.get_context_obj().no_of_rooms
 
     def get_hotel_price(self) -> list:
-        return self.__hotel[0].price_per_night
+        return self.get_context_obj().price_per_night
 
     def get_hotel_description(self) -> list:
-        return self.__hotel[0].hotel_description
+        return self.get_context_obj().hotel_description
 
     def get_hotel_address(self) -> list:
-        return [hotel_address for hotel_address in HotelAddress.objects.filter(hotel__in=self.__hotel)]
+        return [hotel_address for hotel_address in HotelAddress.objects.filter(hotel__in=self._context_obj)]
 
     def get_hotel_images(self) -> list:
-        return [hotel_images for hotel_images in HotelImage.objects.filter(hotel__in=self.__hotel)[:4]]
+        return [hotel_images for hotel_images in HotelImage.objects.filter(hotel__in=self._context_obj)[:4]]
 
 
 def get_context(hotel_name: str) -> dict:
