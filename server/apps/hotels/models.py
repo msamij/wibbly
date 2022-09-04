@@ -3,18 +3,18 @@ from django.db import models
 
 
 class Hotel(models.Model):
-    hotel_name = models.CharField(max_length=15, unique=True)
+    name = models.CharField(max_length=15, unique=True)
     no_of_rooms = models.IntegerField(
         validators=[MinValueValidator(10), MaxValueValidator(100)])
     price_per_night = models.IntegerField(
         validators=[MinValueValidator(100), MaxValueValidator(400)])
-    hotel_description = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return f"""Pk: {self.pk}, Hotel Name: {self.hotel_name}, 
+        return f"""Pk: {self.pk}, Hotel Name: {self.name}, 
         No Of Rooms: {self.no_of_rooms}, 
         Price Per Night: {self.price_per_night},
-        Hotel Description: {self.hotel_description}"""
+        Hotel Description: {self.description}"""
 
 
 class HotelAddress(models.Model):
