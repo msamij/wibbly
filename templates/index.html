@@ -135,7 +135,7 @@
       <div class="figure-box">
         {% for activity in activities %}
           <figure class="figure">
-            <a href="#" class="figure__link">
+            <a href="/activities/{{ activity.activity.name }}" class="figure__link">
               <img
                 src="{{ activity.activity_image_url }}"
                 alt="Activity Image"
