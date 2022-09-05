@@ -9,7 +9,7 @@ class HotelContext(Context[Hotel]):
         super().__init__(Hotel, hotel_name)
 
     def get_hotel_name(self) -> list:
-        return self.get_context_obj().name
+        return self.get_context_obj_name()
 
     def get_total_hotel_rooms(self) -> list:
         return self.get_context_obj().no_of_rooms
@@ -18,7 +18,7 @@ class HotelContext(Context[Hotel]):
         return self.get_context_obj().price_per_night
 
     def get_hotel_description(self) -> list:
-        return self.get_context_obj().description
+        return self.get_context_obj_description()
 
     def get_hotel_address(self) -> list:
         return [hotel_address for hotel_address in HotelAddress.objects.filter(hotel__in=self._context_obj)]

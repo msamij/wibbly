@@ -18,3 +18,6 @@ class Context(Generic[T]):
 
     def get_context_obj_description(self) -> list:
         return self.get_context_obj().description
+
+    def get_context_obj_price(self) -> list:
+        return self.get_context_obj().price

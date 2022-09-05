@@ -10,19 +10,19 @@ from server.utils.context_objects import Context
 class TourContext(Context[Tour]):
 
     def __init__(self, tour_name: str) -> None:
-        self._context_obj = Tour.objects.filter(tour_name=tour_name)
+        super().__init__(Tour, tour_name)
 
     def get_tour_name(self) -> list:
-        return self._context_obj[0].tour_name
+        return self.get_context_obj_name()
 
     def get_tour_price(self) -> list:
-        return self._context_obj[0].tour_price
+        return self.get_context_obj_price()
 
     def get_tour_duration(self) -> list:
-        return self._context_obj[0].tour_duration
+        return self._context_obj[0].duration
 
     def get_tour_description(self) -> list:
-        return self._context_obj[0].tour_description
+        return self.get_context_obj_description()
 
     def get_tour_max_participants(self) -> list:
         return self._context_obj[0].max_participants

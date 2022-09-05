@@ -1,8 +1,9 @@
 from server.apps.tours.utils.context_objects import TourContext
+
 from test_setup import TourPageTestSetup
 
 
-class TourPageTest(TourPageTestSetup):
+class TourPageContextTest(TourPageTestSetup):
     def setUp(self):
         super().setUp()
 

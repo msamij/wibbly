@@ -3,7 +3,7 @@ from server.apps.hotels.utils.context_objects import HotelContext
 from test_setup import HotelPageTestSetup
 
 
-class HotelPageTest(HotelPageTestSetup):
+class HotelPageContextTest(HotelPageTestSetup):
     def setUp(self):
         super().setUp()
 
