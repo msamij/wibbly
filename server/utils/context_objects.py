@@ -21,3 +21,6 @@ class Context(Generic[T]):
 
     def get_context_obj_price(self) -> list:
         return self.get_context_obj().price
+
+    def get_context_obj_images(self, image_model_obj: T) -> list:
+        return [images for images in image_model_obj[:4]]
