@@ -2,6 +2,8 @@ from typing import Generic, TypeVar
 
 from django.db import models
 
+from server.apps.ratings.models import Rating
+
 T = TypeVar('T', models.Model, models.Model)
 
 
@@ -24,3 +26,6 @@ class Context(Generic[T]):
 
     def get_context_obj_images(self, image_model_obj: T) -> list:
         return [images for images in image_model_obj[:4]]
+
+    def get_context_obj_rating(self, rating_model_obj: T) -> list:
+        return [Rating.objects.filter(pk=target_obj.rating.pk)[0] for target_obj in rating_model_obj[:4]]

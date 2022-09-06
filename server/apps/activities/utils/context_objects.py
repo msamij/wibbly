@@ -3,7 +3,6 @@ from server.apps.activityimages.models import ActivityImage
 from server.apps.activityinstructors.models import ActivityInstructor
 from server.apps.activityratings.models import ActivityRating
 from server.apps.instructors.models import Instructor
-from server.apps.ratings.models import Rating
 from server.utils.context_objects import Context
 
 
@@ -22,7 +21,7 @@ class ActivityContext(Context[Activity]):
         return self.get_context_obj_description()
 
     def get_activity_rating(self) -> list:
-        return [Rating.objects.filter(pk=activity.rating.pk)[0] for activity in ActivityRating.objects.filter(activity__in=self._context_obj)[:1]]
+        return self.get_context_obj_rating(ActivityRating.objects.filter(activity__in=self._context_obj))
 
     def get_activity_images(self) -> list:
         return self.get_context_obj_images(ActivityImage.objects.filter(activity__in=self._context_obj))

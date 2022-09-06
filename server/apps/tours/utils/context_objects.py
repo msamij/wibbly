@@ -32,7 +32,6 @@ class TourContext(Context[Tour]):
 
     def get_tour_images(self) -> list:
         return self.get_context_obj_images(TourImage.objects.filter(tour__in=self._context_obj))
-        # return [tour_images for tour_images in TourImage.objects.filter(tour__in=self._context_obj)[:4]]
 
     def get_tour_instructor(self) -> list:
         return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=self._context_obj)]
