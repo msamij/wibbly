@@ -28,13 +28,14 @@ class TourContext(Context[Tour]):
         return self._context_obj[0].max_participants
 
     def get_tour_rating(self) -> list:
-        return [Rating.objects.filter(pk=tour.rating.pk)[0] for tour in TourRating.objects.filter(tour__in=self._context_obj)[:1]]
+        return self.get_context_obj_rating(TourRating.objects.filter(tour__in=self._context_obj))
 
     def get_tour_images(self) -> list:
         return self.get_context_obj_images(TourImage.objects.filter(tour__in=self._context_obj))
 
     def get_tour_instructor(self) -> list:
-        return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=self._context_obj)]
+        return self.get_context_obj_instructor(TourInstructor.objects.filter(tour__in=self._context_obj))
+        # return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=self._context_obj)]
 
 
 def get_context(tour_name: str) -> dict:

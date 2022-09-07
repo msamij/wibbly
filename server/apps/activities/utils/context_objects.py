@@ -27,7 +27,8 @@ class ActivityContext(Context[Activity]):
         return self.get_context_obj_images(ActivityImage.objects.filter(activity__in=self._context_obj))
 
     def get_activity_instructor(self) -> list:
-        return [Instructor.objects.filter(pk=activity_instructor.instructor.pk)[0] for activity_instructor in ActivityInstructor.objects.filter(activity__in=self._context_obj)]
+        return self.get_context_obj_instructor(ActivityInstructor.objects.filter(activity__in=self._context_obj))
+        # return [Instructor.objects.filter(pk=activity_instructor.instructor.pk)[0] for activity_instructor in ActivityInstructor.objects.filter(activity__in=self._context_obj)]
 
 
 def get_context(activity_name: str) -> dict:

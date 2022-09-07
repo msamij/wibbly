@@ -1,6 +1,7 @@
 from typing import Generic, TypeVar
 
 from django.db import models
+from server.apps.instructors.models import Instructor
 
 from server.apps.ratings.models import Rating
 
@@ -28,4 +29,7 @@ class Context(Generic[T]):
         return [images for images in image_model_obj[:4]]
 
     def get_context_obj_rating(self, rating_model_obj: T) -> list:
-        return [Rating.objects.filter(pk=target_obj.rating.pk)[0] for target_obj in rating_model_obj[:4]]
+        return [Rating.objects.filter(pk=target_obj.rating.pk)[0] for target_obj in rating_model_obj[:1]]
+
+    def get_context_obj_instructor(self, instructor_model_obj: T) -> list:
+        return [Instructor.objects.filter(pk=target_obj.instructor.pk)[0] for target_obj in instructor_model_obj]
