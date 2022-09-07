@@ -2,7 +2,6 @@ from typing import Generic, TypeVar
 
 from django.db import models
 from server.apps.instructors.models import Instructor
-
 from server.apps.ratings.models import Rating
 
 T = TypeVar('T', models.Model, models.Model)
@@ -11,10 +10,13 @@ T = TypeVar('T', models.Model, models.Model)
 class Context(Generic[T]):
 
     def __init__(self, model_type: T, key_value: str) -> None:
-        self._context_obj = model_type.objects.filter(name=key_value)
+        self.__context_obj = model_type.objects.filter(name=key_value)
+
+    def get_context(self) -> T:
+        return self.__context_obj
 
     def get_context_obj(self) -> T:
-        return self._context_obj[0]
+        return self.__context_obj[0]
 
     def get_context_obj_name(self) -> list:
         return self.get_context_obj().name

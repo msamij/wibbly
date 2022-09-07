@@ -1,5 +1,3 @@
-from server.apps.instructors.models import Instructor
-from server.apps.ratings.models import Rating
 from server.apps.tourimages.models import TourImage
 from server.apps.tourinstructors.models import TourInstructor
 from server.apps.tourratings.models import TourRating
@@ -19,23 +17,22 @@ class TourContext(Context[Tour]):
         return self.get_context_obj_price()
 
     def get_tour_duration(self) -> list:
-        return self._context_obj[0].duration
+        return self.get_context_obj().duration
 
     def get_tour_description(self) -> list:
         return self.get_context_obj_description()
 
     def get_tour_max_participants(self) -> list:
-        return self._context_obj[0].max_participants
+        return self.get_context_obj().max_participants
 
     def get_tour_rating(self) -> list:
-        return self.get_context_obj_rating(TourRating.objects.filter(tour__in=self._context_obj))
+        return self.get_context_obj_rating(TourRating.objects.filter(tour__in=self.get_context()))
 
     def get_tour_images(self) -> list:
-        return self.get_context_obj_images(TourImage.objects.filter(tour__in=self._context_obj))
+        return self.get_context_obj_images(TourImage.objects.filter(tour__in=self.get_context()))
 
     def get_tour_instructor(self) -> list:
-        return self.get_context_obj_instructor(TourInstructor.objects.filter(tour__in=self._context_obj))
-        # return [Instructor.objects.filter(pk=tour_instructor.instructor.pk)[0] for tour_instructor in TourInstructor.objects.filter(tour__in=self._context_obj)]
+        return self.get_context_obj_instructor(TourInstructor.objects.filter(tour__in=self.get_context()))
 
 
 def get_context(tour_name: str) -> dict:

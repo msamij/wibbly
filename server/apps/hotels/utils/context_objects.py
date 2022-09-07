@@ -21,10 +21,10 @@ class HotelContext(Context[Hotel]):
         return self.get_context_obj_description()
 
     def get_hotel_address(self) -> list:
-        return [hotel_address for hotel_address in HotelAddress.objects.filter(hotel__in=self._context_obj)]
+        return [hotel_address for hotel_address in HotelAddress.objects.filter(hotel__in=self.get_context())]
 
     def get_hotel_images(self) -> list:
-        return [hotel_images for hotel_images in HotelImage.objects.filter(hotel__in=self._context_obj)[:4]]
+        return self.get_context_obj_images(HotelImage.objects.filter(hotel__in=self.get_context()))
 
 
 def get_context(hotel_name: str) -> dict:
