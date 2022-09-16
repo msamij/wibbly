@@ -9,4 +9,8 @@ node_modules/
 # Byte compiled
 **/__pycache__/
 
+
+# Tests coverages
+client/tests/coverage
+
 *.txt

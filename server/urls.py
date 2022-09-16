@@ -22,4 +22,6 @@ urlpatterns = [
     path('tours/', include('server.apps.tours.urls')),
     path('hotels/', include('server.apps.hotels.urls')),
     path('activities/', include('server.apps.activities.urls')),
+
+    path('api/v1/auth/', include('server.apps.authentication.api.urls')),
 ]
