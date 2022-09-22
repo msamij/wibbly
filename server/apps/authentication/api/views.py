@@ -8,7 +8,6 @@ from server.apps.users.forms import UserForm
 from server.apps.users.models import User
 
 
-@csrf_exempt
 @require_http_methods(["POST"])
 def signup_user(request):
     parsed_json = json.load(request)
@@ -23,14 +22,13 @@ def signup_user(request):
     User(username=parsed_json['username'],
          password=parsed_json['password1'],
          credit_card_no=parsed_json['credit_card_no']).save()
-    a_user = authenticate(request,
-                          username=parsed_json['username'],
-                          password=parsed_json['password1'])
-    login(request, a_user)
+    user = authenticate(request,
+                        username=parsed_json['username'],
+                        password=parsed_json['password1'])
+    login(request, user)
     return JsonResponse("Signup successful", status=201, safe=False)
 
 
-@csrf_exempt
 @require_http_methods(["POST"])
 def login_user(request):
     parsed_json = json.load(request)

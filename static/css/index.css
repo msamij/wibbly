@@ -39,7 +39,7 @@ body {
   opacity: 0;
 }
 
-.popup-signup-menu {
+.form {
   display: flex;
   flex-direction: column;
   padding: 5rem 3rem;

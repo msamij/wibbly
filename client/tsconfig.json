@@ -4,6 +4,8 @@
     "target": "es2015",
     "types": ["reflect-metadata", "jest", "node", "@types/jest"],
     "typeRoots": ["./types", "./node_modules/@types"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
