@@ -17,13 +17,13 @@
 {% block body %}  
   <body class="container">
     <div class="overlay"></div>
-
+    <div class="message"></div>
     <form class="form">
       <input type="text" name="username" placeholder="username" maxlength="150" required class="input input__username" id="id_username"/>
       <input type="password" name="password1" placeholder="password" maxlength="128" required class="input input__password" id="id_password1" />
       <input type="password" name="password2" placeholder="confirm password" maxlength="128" required class="input input__confirm-password" id="id_password2" />
       <input type="number" name="credit_card_no" placeholder="credit card no" required class="input input__credit-card-no" id="id_credit_card_no"/>
-      <button class="btn btn-secondary">Signup</button>
+      <button class="btn btn-secondary">Signin</button>
     </form>
 
     <div class="popup-list-menu booking-list">
@@ -94,6 +94,7 @@
         <div class="header__profile-menu">
           <button class="btn btn-secondary btn-signup">Signup</button>
           <button class="btn btn-secondary btn-login">Login</button>
+          <button class="btn btn-secondary btn-logout">Logout</button>
         </div>
       </div>
     </header>

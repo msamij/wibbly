@@ -1,37 +1,35 @@
-import { csrfToken } from '../../utils/token';
-
-const inputUsername: HTMLInputElement = document.querySelector('.input__username');
-const inputPassword: HTMLInputElement = document.querySelector('.input__password');
-const inputConfirmPassword: HTMLInputElement = document.querySelector('.input__confirm-password');
-const inputCreditCard: HTMLInputElement = document.querySelector('.input__credit-card-no');
+import { HTTP } from '../../networking/http';
+import { renderError } from '../../utils/error';
+import { Urls } from '../../networking/urls';
+import { DOMButtonElements, DOMInputElements } from '../../core/dom/domElements';
 
 export async function submitForm(event: Event) {
-  const username = inputUsername.value;
-  const password = inputPassword.value;
-  const confirmPassword = inputConfirmPassword.value;
-  const creditCardNo = inputCreditCard.value;
   event.preventDefault();
 
-  fetch('http://127.0.0.1:8000/api/v1/auth/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-CSRFToken': csrfToken('csrftoken'),
-    },
-    body: JSON.stringify({
-      username: username,
-      password1: password,
-      password2: confirmPassword,
-      credit_card_no: creditCardNo,
-    }),
-  }).then(res => {
-    res.json().then(r => {
-      console.log(r);
-      changeBtnTypeOnLogin();
-    });
+  const username: HTMLInputElement = DOMInputElements.getUsernameField();
+  const password1: HTMLInputElement = DOMInputElements.getPasswordField();
+  const password2: HTMLInputElement = DOMInputElements.getConfirmPasswordField();
+  const creditCardNo: HTMLInputElement = DOMInputElements.getCreditCardField();
+
+  const response = await HTTP.post(`${Urls.baseUrl}${Urls.authUrl}${Urls.signupUrl}`, {
+    username: username.value,
+    password1: password1.value,
+    password2: password2.value,
+    credit_card_no: parseInt(creditCardNo.value),
   });
+
+  const resposeJson: string = await response.json();
+
+  if (response.status == 400) renderError(resposeJson);
+  else toggleLogoutButton();
 }
 
-function changeBtnTypeOnLogin() {
-  console.log('Hello<<<');
+function toggleLogoutButton() {
+  const btnLogout: HTMLButtonElement = DOMButtonElements.getLogoutButton();
+  const btnLogin: HTMLButtonElement = DOMButtonElements.getLoginButton();
+  const btnSignup: HTMLButtonElement = DOMButtonElements.getSignupButton();
+  [btnLogin, btnSignup].forEach(el => {
+    el.style.display = 'none';
+  });
+  btnLogout.style.display = 'block';
 }

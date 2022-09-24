@@ -1,18 +1,10 @@
-import { event, component } from '../../core/decorators/events/events';
+import { component, event } from '../../core/decorators/events/events';
+import { renderOverlay } from '../event functions/renderOverlay';
 
 @component
 export class Overlay {
-  @event('click', overlayMenu)
+  @event('click', renderOverlay)
   getOverlay(): HTMLDivElement {
     return document.querySelector('.overlay');
   }
-}
-
-function overlayMenu() {
-  const form: HTMLDivElement = document.querySelector('.form');
-  const overlay: HTMLDivElement = document.querySelector('.overlay');
-  form.style.opacity = '0';
-  form.style.visibility = 'hidden';
-  overlay.style.visibility = 'hidden';
-  overlay.style.opacity = '0';
 }

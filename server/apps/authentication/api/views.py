@@ -42,7 +42,6 @@ def login_user(request):
     return JsonResponse('Username or password incorrect', status=400, safe=False)
 
 
-@csrf_exempt
 @require_http_methods(['POST'])
 def logout_user(request):
     logout(request)
