@@ -2,10 +2,20 @@
   "compilerOptions": {
     "lib": ["es2015", "dom"],
     "target": "es2015",
+    "baseUrl": ".",
     "types": ["reflect-metadata", "jest", "node", "@types/jest"],
     "typeRoots": ["./types", "./node_modules/@types"],
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@utils/*": ["./utils/*"],
+      "@helpers/*": ["./ui/helpers/*"],
+      "@domElements/*": ["./core/dom/*"],
+      "@networking/*": ["./networking/*"],
+      "@components/*": ["./ui/components/*"],
+      "@eventFunctions/*": ["./ui/event functions/*"],
+      "@eventDecorators/*": ["./core/decorators/events/*"]
+    }
   }
 }

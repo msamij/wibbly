@@ -1,4 +1,4 @@
-import { csrfToken } from '../utils/token';
+import { csrfToken } from '@utils/token';
 
 interface RequestBody {
   username?: string;

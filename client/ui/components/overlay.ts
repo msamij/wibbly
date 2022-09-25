@@ -1,5 +1,5 @@
-import { component, event } from '../../core/decorators/events/events';
-import { renderOverlay } from '../event functions/renderOverlay';
+import { component, event } from '@eventDecorators/events';
+import { renderOverlay } from '@eventFunctions/renderOverlay';
 
 @component
 export class Overlay {

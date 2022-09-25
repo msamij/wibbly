@@ -1,7 +1,8 @@
-import { HTTP } from '../../networking/http';
-import { renderError } from '../../utils/error';
-import { Urls } from '../../networking/urls';
-import { DOMButtonElements, DOMInputElements } from '../../core/dom/domElements';
+import { DOMInputElements } from '@domElements/domElements';
+import { renderLogoutButton } from '@helpers/logoutBtn';
+import { HTTP } from '@networking/http';
+import { Urls } from '@networking/urls';
+import { renderError } from '@utils/error';
 
 export async function submitForm(event: Event) {
   event.preventDefault();
@@ -20,16 +21,7 @@ export async function submitForm(event: Event) {
 
   const resposeJson: string = await response.json();
 
+  // Upon signup will render logout button and remove signup & login buttons.
   if (response.status == 400) renderError(resposeJson);
-  else toggleLogoutButton();
-}
-
-function toggleLogoutButton() {
-  const btnLogout: HTMLButtonElement = DOMButtonElements.getLogoutButton();
-  const btnLogin: HTMLButtonElement = DOMButtonElements.getLoginButton();
-  const btnSignup: HTMLButtonElement = DOMButtonElements.getSignupButton();
-  [btnLogin, btnSignup].forEach(el => {
-    el.style.display = 'none';
-  });
-  btnLogout.style.display = 'block';
+  else renderLogoutButton();
 }

@@ -1,9 +1,9 @@
-import { component, event } from '../../core/decorators/events/events';
-import { authMenu } from '../event functions/authMenu';
+import { component, event } from '@eventDecorators/events';
+import { renderAuthForm } from '@eventFunctions/authForm';
 
 @component
 export class AuthContainer {
-  @event('click', authMenu)
+  @event('click', renderAuthForm)
   getAuthContainer(): HTMLDivElement {
     return document.querySelector('.header__profile-menu');
   }

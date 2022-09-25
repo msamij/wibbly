@@ -1,3 +1,3 @@
-import './ui/components/authContainer';
-import './ui/components/form';
-import './ui/components/overlay';
+import '@components/authContainer';
+import '@components/form';
+import '@components/overlay';

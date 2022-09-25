@@ -1,6 +1,6 @@
-import { component, event } from '../../core/decorators/events/events';
-import { submitForm } from '../event functions/formSubmit';
-import { DOMElements } from '../../core/dom/domElements';
+import { DOMElements } from '@domElements/domElements';
+import { component, event } from '@eventDecorators/events';
+import { submitForm } from '@eventFunctions/formSubmit';
 
 @component
 export class FormComponent {

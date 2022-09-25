@@ -1,8 +1,10 @@
-export function authMenu(event: Event) {
-  const form: HTMLDivElement = document.querySelector('.form');
-  const overlay: HTMLDivElement = document.querySelector('.overlay');
-  const confirmPasswordField: HTMLInputElement = document.querySelector('.input__confirm-password');
-  const creditCardField: HTMLInputElement = document.querySelector('.input__credit-card-no');
+import { DOMElements, DOMInputElements } from '@domElements/domElements';
+
+export function renderAuthForm(event: Event) {
+  const form: HTMLDivElement = DOMElements.getForm();
+  const overlay: HTMLDivElement = DOMElements.getOverlay();
+  const confirmPasswordField: HTMLInputElement = DOMInputElements.getConfirmPasswordField();
+  const creditCardField: HTMLInputElement = DOMInputElements.getCreditCardField();
 
   if ((event.target as HTMLButtonElement).closest('.btn-login')) {
     confirmPasswordField.style.display = 'none';
