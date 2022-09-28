@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-export function component(target: Function) {
+export function Component(target: Function) {
   for (let key of Object.getOwnPropertyNames(target.prototype)) {
     const eventType = Reflect.getMetadata('eventType', target.prototype, key);
     const listener = Reflect.getMetadata('listener', target.prototype, key);
@@ -10,11 +10,4 @@ export function component(target: Function) {
       method().addEventListener(eventType, listener);
     }
   }
-}
-
-export function event(eventType: string, listener: Function): Function {
-  return function (target: any, key: string, desc: PropertyDescriptor) {
-    Reflect.defineMetadata('eventType', eventType, target, key);
-    Reflect.defineMetadata('listener', listener, target, key);
-  };
 }

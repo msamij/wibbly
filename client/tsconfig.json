@@ -14,8 +14,8 @@
       "@domElements/*": ["./core/dom/*"],
       "@networking/*": ["./networking/*"],
       "@components/*": ["./ui/components/*"],
-      "@eventFunctions/*": ["./ui/event functions/*"],
-      "@eventDecorators/*": ["./core/decorators/events/*"]
+      "@decorators/*": ["./core/decorators/*"],
+      "@eventFunctions/*": ["./ui/event functions/*"]
     }
   }
 }

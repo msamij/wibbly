@@ -3,5 +3,8 @@
   "coverageDirectory": "./tests/coverage",
   "testMatch": ["**/?(*.)+(spec).ts"],
   "resetMocks": true,
-  "clearMocks": true
+  "clearMocks": true,
+  "moduleNameMapper": {
+    "@decorators/(.*)": "<rootDir>/core/decorators/$1"
+  }
 }

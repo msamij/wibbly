@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:index": "esbuild index.ts --bundle --minify --outfile=../static/build/index.js",
-    "test": "jest -c ./jest.unit.json",
+    "test": "jest -c ./jest.config.json",
     "test:coverage": "jest --coverage -c ./jest.unit.json"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "@types/node": "^18.7.16",
     "esbuild": "^0.15.7",
     "jest": "^28.1.3",
+    "jest-environment-jsdom": "^29.0.3",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1"
   },
