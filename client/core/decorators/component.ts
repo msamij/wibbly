@@ -6,8 +6,8 @@ export function Component(target: Function) {
     const listener = Reflect.getMetadata('listener', target.prototype, key);
 
     if (eventType && listener) {
-      const method = target.prototype[key];
-      method().addEventListener(eventType, listener);
+      const element: HTMLElement = target.prototype[key]();
+      if (element) element.addEventListener(eventType, listener);
     }
   }
 }

@@ -5,6 +5,12 @@
   "resetMocks": true,
   "clearMocks": true,
   "moduleNameMapper": {
-    "@decorators/(.*)": "<rootDir>/core/decorators/$1"
+    "@utils/(.*)": "<rootDir>/utils/$1",
+    "@helpers/(.*)": "<rootDir>/ui/helpers/$1",
+    "@domElements/(.*)": "<rootDir>/core/dom/$1",
+    "@networking/(.*)": "<rootDir>/networking/$1",
+    "@components/(.*)": "<rootDir>/ui/components/$1",
+    "@decorators/(.*)": "<rootDir>/core/decorators/$1",
+    "@eventFunctions/(.*)": "<rootDir>/ui/event functions/$1"
   }
 }

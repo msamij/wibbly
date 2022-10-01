@@ -1,7 +1,14 @@
+/**
+ * @jest-environment jsdom
+ */
+
+import { Component } from '../../core/decorators/component';
 import { FormComponent } from '../../ui/components/form';
 
-describe('Form class test', () => {
-  test('It should have a method called getForm', () => {
-    expect(new FormComponent().getForm).toBeInstanceOf(Function);
+describe('Component decorator test', () => {
+  test('Component decorator gets called for form component', () => {
+    const componentDecorator = jest.fn(Component);
+    componentDecorator(FormComponent);
+    expect(componentDecorator.mock.calls.length).toBe(1);
   });
 });
