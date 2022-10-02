@@ -21,7 +21,7 @@ export async function submitForm(event: Event) {
 
   const resposeJson: string = await response.json();
 
-  // Upon signup will render logout button and remove signup & login buttons.
+  // Upon signup, will render logout button and remove signup & login buttons.
   if (response.status == 400) renderError(resposeJson);
   else renderLogoutButton();
 }
