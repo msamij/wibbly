@@ -1,7 +1,7 @@
 import { Component } from '@decorators/component';
+import { Event } from '@decorators/events';
 import { DOMElements } from '@domElements/domElements';
 import { renderAuthForm } from '@eventFunctions/authForm';
-import { Event } from 'core/decorators/events';
 
 @Component
 export class AuthContainer {

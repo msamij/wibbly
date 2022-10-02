@@ -4,7 +4,7 @@ import { DOMElements } from '@domElements/domElements';
 import { submitForm } from '@eventFunctions/formSubmit';
 
 @Component
-export class FormComponent {
+export class Form {
   @Event('submit', submitForm)
   getForm(): HTMLDivElement {
     return DOMElements.getForm();
