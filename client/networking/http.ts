@@ -23,7 +23,7 @@ export class HTTP {
     return await this.httpFetch('GET', url);
   }
 
-  static async post(url: string, body: RequestBody): Promise<Response> {
+  static async post(url: string, body?: RequestBody): Promise<Response> {
     return await this.httpFetch('POST', url, body);
   }
 }

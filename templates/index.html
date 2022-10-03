@@ -92,9 +92,14 @@
         </button>
 
         <div class="header__profile-menu">
+          {% if request.user.is_authenticated %}
+          <button class="btn btn-secondary btn-logout" style="display: block;" >Logout</button>
+          <button class="btn btn-secondary btn-signup" style="display: none;">Signup</button>
+          <button class="btn btn-secondary btn-login" style="display: none;">Login</button>
+          {% else %}
           <button class="btn btn-secondary btn-signup">Signup</button>
           <button class="btn btn-secondary btn-login">Login</button>
-          <button class="btn btn-secondary btn-logout">Logout</button>
+          {% endif %}
         </div>
       </div>
     </header>

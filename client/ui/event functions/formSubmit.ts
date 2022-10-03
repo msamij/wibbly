@@ -1,8 +1,9 @@
 import { DOMInputElements } from '@domElements/domElements';
-import { renderLogoutButton } from '@helpers/logoutBtn';
+import { toggleLogoutButton } from '@helpers/logoutBtn';
 import { HTTP } from '@networking/http';
 import { Urls } from '@networking/urls';
 import { renderError } from '@utils/error';
+import { toggleAuthForm } from '@helpers/toggleAuthForm';
 
 export async function submitForm(event: Event) {
   event.preventDefault();
@@ -23,5 +24,8 @@ export async function submitForm(event: Event) {
 
   // Upon signup, will render logout button and remove signup & login buttons.
   if (response.status == 400) renderError(resposeJson);
-  else renderLogoutButton();
+  else {
+    toggleAuthForm(false);
+    toggleLogoutButton(true);
+  }
 }

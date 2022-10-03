@@ -8,7 +8,7 @@ import { Form } from '../../ui/components/form';
 import { Overlay } from '../../ui/components/overlay';
 import { renderAuthForm } from '../../ui/event functions/authForm';
 import { submitForm } from '../../ui/event functions/formSubmit';
-import { renderOverlay } from '../../ui/event functions/renderOverlay';
+import { removeOverlay } from '../../ui/event functions/renderOverlay';
 
 describe('Event decorator test', () => {
   let eventDecorator = null;
@@ -21,7 +21,7 @@ describe('Event decorator test', () => {
 
   test('Event decorator get called for each component', () => {
     eventDecorator('submit', submitForm);
-    eventDecorator('click', renderOverlay);
+    eventDecorator('click', removeOverlay);
     eventDecorator('click', renderAuthForm);
     expect(eventDecorator.mock.calls.length).toBe(3);
   });

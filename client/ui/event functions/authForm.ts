@@ -1,21 +1,15 @@
-import { DOMElements, DOMInputElements } from '@domElements/domElements';
+import { toggleAuthForm } from '@helpers/toggleAuthForm';
+import { toggleInputFields } from '@helpers/toggleInputFields';
 
 export function renderAuthForm(event: Event) {
-  const form: HTMLDivElement = DOMElements.getForm();
-  const overlay: HTMLDivElement = DOMElements.getOverlay();
-  const confirmPasswordField: HTMLInputElement = DOMInputElements.getConfirmPasswordField();
-  const creditCardField: HTMLInputElement = DOMInputElements.getCreditCardField();
+  const eventTarget = event.target as HTMLButtonElement;
 
-  if ((event.target as HTMLButtonElement).closest('.btn-login')) {
-    confirmPasswordField.style.display = 'none';
-    creditCardField.style.display = 'none';
-  } else if ((event.target as HTMLButtonElement).closest('.btn-signup')) {
-    confirmPasswordField.style.display = 'block';
-    creditCardField.style.display = 'block';
+  // Only render on signup or login button event.
+  if (eventTarget.closest('.btn-login') || eventTarget.closest('.btn-signup')) toggleAuthForm(true);
+
+  if (eventTarget.closest('.btn-login')) {
+    toggleInputFields(false);
+  } else if (eventTarget.closest('.btn-signup')) {
+    toggleInputFields(true);
   }
-
-  [form, overlay].forEach(el => {
-    el.style.visibility = 'visible';
-    el.style.opacity = '1';
-  });
 }

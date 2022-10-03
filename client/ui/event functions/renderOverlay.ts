@@ -1,10 +1,5 @@
-import { DOMElements } from '@domElements/domElements';
+import { toggleAuthForm } from '@helpers/toggleAuthForm';
 
-export function renderOverlay() {
-  const form: HTMLDivElement = DOMElements.getForm();
-  const overlay: HTMLDivElement = DOMElements.getOverlay();
-  [form, overlay].forEach(el => {
-    el.style.visibility = 'hidden';
-    el.style.opacity = '0';
-  });
+export function removeOverlay() {
+  toggleAuthForm(false);
 }

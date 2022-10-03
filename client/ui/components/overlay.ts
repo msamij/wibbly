@@ -1,11 +1,11 @@
 import { Component } from '@decorators/component';
 import { Event } from '@decorators/events';
 import { DOMElements } from '@domElements/domElements';
-import { renderOverlay } from '@eventFunctions/renderOverlay';
+import { removeOverlay } from '@eventFunctions/renderOverlay';
 
 @Component
 export class Overlay {
-  @Event('click', renderOverlay)
+  @Event('click', removeOverlay)
   getOverlay(): HTMLDivElement {
     return DOMElements.getOverlay();
   }
