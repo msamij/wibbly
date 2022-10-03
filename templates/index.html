@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block font %}
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet" />
   <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon" />
 {% endblock %}
 
@@ -109,7 +109,7 @@
       <div class="figure-box">
         {% for hotel in hotels %}
           <figure class="figure">
-            <!-- <a href="/hotels/{{ hotel.hotel.name }}" class="figure__link">
+            <a href="/hotels/{{ hotel.hotel.name }}" class="figure__link">
               <img
                 src="{{ hotel.hotel_image_url }}"
                 alt="Hotel Image"
@@ -117,7 +117,7 @@
               />
               <h2 class="heading-default figure__title">{{ hotel.hotel.name }}, <span class="figure__rooms">{{ hotel.hotel.no_of_rooms }} rooms</span></h2>
               <h3 class="heading-default figure__price">{{ hotel.hotel.price_per_night }}$ night</h3>
-            </a> -->
+            </a>
           </figure>
         {% endfor %}
       </div>
@@ -126,7 +126,7 @@
       <div class="figure-box">
         {% for tour in tours %}
           <figure class="figure">
-            <!-- <a href="/tours/{{ tour.tour.name }}" class="figure__link">
+            <a href="/tours/{{ tour.tour.name }}" class="figure__link">
                 <img
                   src="{{ tour.tour_image_url }}"
                   alt="Tour Image"
@@ -134,7 +134,7 @@
                 />
               <h2 class="heading-default figure__title">{{ tour.tour.name }}, <span class="figure__duration">{{ tour.tour.duration }} day tour</span></h2>
               <h3 class="heading-default figure__price">{{ tour.tour.price }}$</h3>
-            </a> -->
+            </a>
           </figure>
         {% endfor %}
       </div>
@@ -143,7 +143,7 @@
       <div class="figure-box">
         {% for activity in activities %}
           <figure class="figure">
-            <!-- <a href="/activities/{{ activity.activity.name }}" class="figure__link">
+            <a href="/activities/{{ activity.activity.name }}" class="figure__link">
               <img
                 src="{{ activity.activity_image_url }}"
                 alt="Activity Image"
@@ -151,7 +151,7 @@
               />
               <h2 class="heading-default figure__title">{{ activity.activity.name }}</h2>
               <h3 class="heading-default figure__price">{{ activity.activity.price }}$</h3>
-            </a> -->
+            </a>
           </figure>
         {% endfor %}
       </div>
