@@ -1,24 +1,14 @@
-import { DOMInputElements } from '@domElements/domElements';
-import { toggleLogoutButton } from '@helpers/logoutBtn';
+import { toggleLogoutButton } from '@eventFunctions/helpers/logoutBtn';
+import { toggleAuthForm } from '@eventFunctions/helpers/toggleAuthForm';
+import { getAuthFormData } from '@helpers/authFormData';
+import { getAuthUrl } from '@helpers/authUrl';
 import { HTTP } from '@networking/http';
-import { Urls } from '@networking/urls';
 import { renderError } from '@utils/error';
-import { toggleAuthForm } from '@helpers/toggleAuthForm';
 
 export async function submitForm(event: Event) {
   event.preventDefault();
 
-  const username: HTMLInputElement = DOMInputElements.getUsernameField();
-  const password1: HTMLInputElement = DOMInputElements.getPasswordField();
-  const password2: HTMLInputElement = DOMInputElements.getConfirmPasswordField();
-  const creditCardNo: HTMLInputElement = DOMInputElements.getCreditCardField();
-
-  const response = await HTTP.post(`${Urls.baseUrl}${Urls.authUrl}${Urls.signupUrl}`, {
-    username: username.value,
-    password1: password1.value,
-    password2: password2.value,
-    credit_card_no: parseInt(creditCardNo.value),
-  });
+  const response = await HTTP.post(getAuthUrl(), getAuthFormData());
 
   const resposeJson: string = await response.json();
 

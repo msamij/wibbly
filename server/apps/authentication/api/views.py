@@ -34,7 +34,7 @@ def login_user(request):
     parsed_json = json.load(request)
     user = authenticate(request,
                         username=parsed_json['username'],
-                        password=parsed_json['password'])
+                        password=parsed_json['password1'])
     if user is not None:
         login(request, user)
         return JsonResponse('Logged in successfully', status=200, safe=False)

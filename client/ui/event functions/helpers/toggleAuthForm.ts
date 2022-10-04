@@ -9,11 +9,11 @@ export function toggleAuthForm(toggle: boolean) {
   const form: HTMLDivElement = DOMElements.getForm();
   const overlay: HTMLDivElement = DOMElements.getOverlay();
 
+  if (toggle) {
+    opacity = '1';
+    visibility = 'visible';
+  }
   [form, overlay].forEach(el => {
-    if (toggle) {
-      visibility = 'visible';
-      opacity = '1';
-    }
     el.style.visibility = visibility;
     el.style.opacity = opacity;
   });

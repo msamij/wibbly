@@ -1,11 +1,5 @@
 import { csrfToken } from '@utils/token';
-
-interface RequestBody {
-  username?: string;
-  password1?: string;
-  password2?: string;
-  credit_card_no?: number;
-}
+import { RequestBody } from '@ui/requestBody';
 
 export class HTTP {
   private static async httpFetch(method: 'GET' | 'POST', url: string, body?: RequestBody): Promise<Response> {

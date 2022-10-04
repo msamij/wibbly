@@ -1,4 +1,4 @@
-import { toggleLogoutButton } from '@helpers/logoutBtn';
+import { toggleLogoutButton } from '@eventFunctions/helpers/logoutBtn';
 import { HTTP } from '@networking/http';
 import { Urls } from '@networking/urls';
 

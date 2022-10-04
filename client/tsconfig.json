@@ -9,12 +9,14 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "paths": {
+      "@ui/*": ["./ui/*"],
       "@utils/*": ["./utils/*"],
-      "@helpers/*": ["./ui/helpers/*"],
+      "@state/*": ["./core/state/*"],
       "@domElements/*": ["./core/dom/*"],
       "@networking/*": ["./networking/*"],
       "@components/*": ["./ui/components/*"],
       "@decorators/*": ["./core/decorators/*"],
+      "@helpers/*": ["ui/event functions/helpers/*"],
       "@eventFunctions/*": ["./ui/event functions/*"]
     }
   }

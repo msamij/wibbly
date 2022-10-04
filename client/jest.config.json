@@ -5,8 +5,10 @@
   "resetMocks": true,
   "clearMocks": true,
   "moduleNameMapper": {
+    "@ui/(.*)": "<rootDir>/ui/$1",
     "@utils/(.*)": "<rootDir>/utils/$1",
-    "@helpers/(.*)": "<rootDir>/ui/helpers/$1",
+    "@state/(.*)": "<rootDir>/core/state/$1",
+    "@helpers/(.*)": "<rootDir>/ui/event functions/helpers/$1",
     "@domElements/(.*)": "<rootDir>/core/dom/$1",
     "@networking/(.*)": "<rootDir>/networking/$1",
     "@components/(.*)": "<rootDir>/ui/components/$1",
